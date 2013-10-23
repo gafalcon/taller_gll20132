@@ -132,6 +132,65 @@ fun add a b = a + b;
 
 A diferencia de Haskell que utiliza lazy evaluation, ML utiliza eager evaluation(o greedy evaluation), lo que significa que todas las subexpresiones son siempre evaluadas.
 
+\section{\color{red}Historia}
+ML se refiere como lenguaje funcional impuro, ya que este permite los efectos secundarios,  y a la programcaion imperativa
+El lenguaje de programacion ML, conocido como SML, inspirado en algunos conceptos fundamentales de la informática; pone a disposición:
+\begin{itemize}
+\item Los árboles y otros tipos de datos recursivos declarado y pueden utilizarse sin mención de los punteros;
+\item Las funciones son valores de ML estándar, las funciones pueden tener funciones como argumentos y devuelven como resultados;
+\item Tipo de polimorfismo ( Milner, 1978 ) hace posible para declarar funciones cuyo tipo depende del contexto. Por ejemplo, la misma función puede ser usada para invertir una lista de enteros y una lista de cadenas.
+\end{itemize}
+En la actualidad es un lenguaje de propósito general
+\section{\color{red}Tutorial de Instalación}
+
+\begin{itemize}
+\item Vaya al directorio C : \ y descomprimir la distribución ML Moscú
+mediante la ejecución
+
+unzip win32 mos20bin.zip
+
+NOTA : Debe utilizar una versión de descompresión hizo preserva archivo largo
+nombres, : como Info- Zip o Winzip .
+
+Esto crea un directorio C: \ mOsml con subdirectorios
+
+mOsml / readme , install.txt
+bin / mOsml , mosmlc , mosmllex , mosmlyac , camlrunm ,
+y las bibliotecas cargadas dinámicamente
+copyrght / avisos de copyright
+doc / manual.pdf , mosmlref.pdf , mosmllib.pdf , ...
+documentación mosmllib / HTML de la biblioteca ML Moscú
+examples / algunos programas de ejemplo
+lib / bytecode y base de las unidades de la biblioteca
+Herramientas / mosmldep , Makefile.stub
+
+\item Añadir C: \ mOsml \ bin a la variable PATH, y establecer el entorno
+     variable ` mosmllib ' a C: \ mOsml \ lib .
+
+\begin{itemize}
+\item En el caso de Windows 95/98/ME Si su archivo AUTOEXEC.BAT contención algo como:
+
+SET PATH = c: \ dos ; ... C: \ mOsml \ bin
+establecer MOSMLLIB = C: \ mOsml \ lib
+
+El sistema se debe reiniciar para que el nuevo entorno variable.
+
+\item En el caso de Windows NT/2000/XP , seleccione Inicio | Configuración | Panel de control | Sistema | Avanzada | Variables de entorno Variables de sistema | | NuevoIntroduzca MOSMLLIB como nombre de variable y C: \ mOsml \ lib como valor de la variable .Haga doble clic en Path y añada C: \ mOsml \ bin a la variable valor .
+
+\end{itemize}
+
+\item Inicio Moscú ML mediante la introducción de la línea de comandos
+
+        mOsml
+
+\end{itemize}
+
+\section{\color{red}Ejemplo: Funcion Factorial}
+
+ML
+fun fac (n) =
+if n = 0 then 1
+else n * fac (n - 1)
 
 
 \lstset{language=ML}          % Set your language (you can change the language for each code-block optionally)
