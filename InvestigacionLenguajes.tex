@@ -140,9 +140,9 @@ A diferencia de Haskell que utiliza lazy evaluation, ML utiliza eager evaluation
 
 \begin{lstlisting}[frame=single]  % Start your code-block
 fun test x =
-case x of
-[] => 0
-x::xs' => x + test xs'
+  case x of
+    [] => 0
+   | x::xs' => x + test xs'
 \end{lstlisting}
 
 
