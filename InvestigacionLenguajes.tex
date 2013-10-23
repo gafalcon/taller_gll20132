@@ -50,10 +50,14 @@
 \renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
 
 %%% END Article customizations
-
+\usepackage{hyperref}
 \usepackage[spanish]{babel}
 \usepackage{listings} 
 \usepackage{color}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{orange}{rgb}{1,0.5,0}
 %%% The "real" document content comes below...
 
 
@@ -61,14 +65,21 @@
 \author{Gabriel Falcones\and Angel Sampin}
 %\date{} % Activate to display 1a given date or no date (if empty),
 % otherwise the current date is printed 
-\lstset{language=ML}
+\lstset{language=ML,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\color{mygreen},
+  commentstyle=\color{mymauve},
+  numberstyle=\color{mygray},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},}
 \begin{document}
 \maketitle
 %\tableofcontents % No hace falta un TOC en un artículo corto
 
 
 \section{\color{red}Introducción}
-ML es un lenguaje de programación de tipo funcional de tipificado estático, desarrollado en 1973 por Robert Milner en la Universidad de Edimburgo. Su nombre es un acrónimo de Meta Lenguaje, desarrollado para realizar demostraciones automáticas de teoremas en el sistema LCF.\\
+ML\nocite{*} es un lenguaje de programación de tipo funcional de tipificado estático, desarrollado en 1973 por Robert Milner en la Universidad de Edimburgo. Su nombre es un acrónimo de Meta Lenguaje, desarrollado para realizar demostraciones automáticas de teoremas en el sistema LCF.\\
 
 Difiere de otros lenguajes de programación funcional como Haskell, en que también permite la programación de tipo imperativa, al poseer identificadores, que tienen la apariencia de nombres de variables en lenguages imperativos.\\
 
@@ -144,7 +155,7 @@ En la actualidad es un lenguaje de propósito general
 \section{\color{red}Tutorial de Instalación}
 
 \begin{itemize}
-\item Vaya al directorio C : \backslash y descomprimir la distribución ML Moscú
+\item Vaya al directorio C :\textbackslash  \space y descomprimir la distribución ML Moscú
 mediante la ejecución
 
 unzip win32 mos20bin.zip
@@ -152,7 +163,7 @@ unzip win32 mos20bin.zip
 NOTA : Debe utilizar una versión de descompresión hizo preserva archivo largo
 nombres, : como Info- Zip o Winzip .
 
-Esto crea un directorio C: \backslash mOsml con subdirectorios
+Esto crea un directorio C: \textbackslash  \space mOsml con subdirectorios
 
 mOsml / readme , install.txt
 bin / mOsml , mosmlc , mosmllex , mosmlyac , camlrunm ,
@@ -164,13 +175,13 @@ examples / algunos programas de ejemplo
 lib / bytecode y base de las unidades de la biblioteca
 Herramientas / mosmldep , Makefile.stub
 
-\item Añadir C: \backslash mOsml \backslash bin a la variable PATH, y establecer el entorno
-     variable ` mosmllib ' a C: \backslash mOsml \backslash lib .
+\item Añadir C: \textbackslash  \space mOsml \textbackslash  \space bin a la variable PATH, y establecer el entorno
+     variable ` mosmllib ' a C: \textbackslash  \space mOsml \textbackslash  \space lib .
 
 \begin{itemize}
 \item En el caso de Windows 95/98/ME Si su archivo AUTOEXEC.BAT contención algo como:
 
-\space \space SET PATH = c: \backslash dos ; ... C: \backslash mOsml \backslash bin , establecer MOSMLLIB = C: \backslash mOsml \backslash lib
+\space \space SET PATH = c:\textbackslash  \space dos ; ... C:\textbackslash  \space mOsml\textbackslash  \space bin , establecer MOSMLLIB = C:\textbackslash  \space mOsml\textbackslash  \space lib
 
 El sistema se debe reiniciar para que el nuevo entorno variable.
 
@@ -182,22 +193,34 @@ El sistema se debe reiniciar para que el nuevo entorno variable.
 
 \end{itemize}
 
-\section{\color{red}Ejemplo: Funcion Factorial}
-
-ML
-fun fac (n) =
-if n = 0 then 1
-else n * fac (n - 1)
-
-
-\lstset{language=ML}          % Set your language (you can change the language for each code-block optionally)
+\section{\color{red}Ejemplo: Hola mundo y otras funciones}
 
 \begin{lstlisting}[frame=single]  % Start your code-block
-fun test x =
-  case x of
-    [] => 0
-   | x::xs' => x + test xs'
+(* Funcion Hello World *)
+fun hello =
+  "Hello world!";
 \end{lstlisting}
+
+\begin{lstlisting}[frame=single]
+(* Funcion que recibe un entero y devuelve su factorial *)
+fun fac n =
+  if n = 0 then 1
+  else n * fac (n - 1)
+\end{lstlisting}
+
+%\lstset{language=ML}          % Set your language (you can change the language for each code-block optionally)
+
+\begin{lstlisting}[frame=single]  % Start your code-block
+(* Función que recibe una lista de enteros y devuelve
+ la suma de cada uno de sus valores *)
+fun suma lista =
+  case lista of
+    [] => 0
+   | x::xs' => x + suma xs'
+\end{lstlisting}
+
+\bibliographystyle{plain}
+\bibliography{Investigacion}
 
 
 
